@@ -16,6 +16,7 @@ export class TransactionsTableComponent implements OnInit {
   public totalAbonos: any;
   total: any;
   girosMas: any;
+  transferencias: any;
 
   user:any
   values:any;
@@ -35,12 +36,16 @@ export class TransactionsTableComponent implements OnInit {
       this.giros = res;
       this.totalGiros = this.giros.reduce((sum, value) => (typeof value.valor == "number" ? sum + value.valor : sum), 0);
 
-      this.totalGiros = this.totalGiros['totalGiros'];
     });
 
       this.authService.getAbonos().subscribe((res: any) => {
       this.abonos = res;
       this.totalAbonos = this.abonos.reduce((sum, value) => (typeof value.valor == "number" ? sum + value.valor : sum), 0);
+    });
+
+    this.authService.getTransferencias().subscribe((res: any) => {
+      this.transferencias = res;
+     
     });
 
     const formatter = new Intl.NumberFormat('es-CL', {

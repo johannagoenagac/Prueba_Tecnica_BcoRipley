@@ -60,4 +60,9 @@ export class AuthService {
     getUserId(){
       return this.http.get(this.URL + '/userId');
     }
+
+    getTransferencias(){
+      return this.http.get(this.URL + '/Transferencias');
+    }
+
 }

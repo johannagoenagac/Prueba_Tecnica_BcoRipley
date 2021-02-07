@@ -34,11 +34,9 @@ export class PrivateTaskComponent implements OnInit {
       this.values = Object.values(res);
       this.userId = this.values[0]._id;
     });
-
+    
+   
   }
-
-
-
 
   addTransaction() {
     this.authservice.transaction(this.transactionForm.value, this.userId)
@@ -46,12 +44,13 @@ export class PrivateTaskComponent implements OnInit {
         res => {
           console.log(res);
           localStorage.setItem('token', res.token);
+
         },
         err => {
           console.log(err)
 
         });
-
+      
   }
 
 }

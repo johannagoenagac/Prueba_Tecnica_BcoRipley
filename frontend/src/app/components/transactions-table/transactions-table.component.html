@@ -1,4 +1,4 @@
-<div class="div">
+<div class="div">  
     <table class="table">
         <thead>
             <tr>
@@ -16,7 +16,6 @@
                 <td class="text-danger">{{abono.valor}}</td>
             </tr>
 
-
         </tbody>
 
         <tbody class="mt-3">
@@ -31,6 +30,33 @@
         </tbody>
 
     </table>
+
+    <div class="card card-body">
+        <p class="text-center"><strong>Transferencias</strong></p>
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Rut Destinatario</th>
+                    <th scope="col">Cuenta</th>
+                    <th scope="col">Banco</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trasnferencia of transferencias">
+                    <td>{{trasnferencia.rut_destino}}</td>
+                    <td>{{trasnferencia.Numero_cuenta}}</td>
+                    <td>{{trasnferencia.Banco}}</td>
+                    <td>{{trasnferencia.tipo}}</td>
+                    <td>{{trasnferencia.valor}}</td>
+                </tr>
+              
+            </tbody>
+    
+        </table>
+    </div>
 
 
 </div>
