@@ -94,6 +94,15 @@ router.get('/getAbonos', async (req, res) => {
 
 });
 
+router.get('/Transferencias', async (req, res) => {
+	const transactions = await getTransacciones();
+	const Transferencias = transactions.filter(trans => trans.tipo == "Transferencia")
+	logger.silly(`Transferencias ${JSON.stringify(Transferencias, null, 2)}`);
+	return res.status(200).json(Transferencias);
+
+});
+
+
 const getTransacciones = async function (id) {
 	try {
 		const transactions = await transaccion.find({});
