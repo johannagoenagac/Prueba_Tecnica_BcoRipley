@@ -9,12 +9,9 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  user = {
-    email:'',
-    password: ''
-  }
-
+  user = {}
   token: any;
+  messageError: String;
 
   constructor(private authservice : AuthService,
     private router: Router) { }
@@ -32,8 +29,10 @@ export class SignupComponent implements OnInit {
      localStorage.setItem('token', this.token.token);
      this.router.navigate(['/private']);
         },
-        err => console.log(err)
-      )
+        err => {
+        console.log(err)
+        this.messageError = err.error;
+        });
   }
 
 }

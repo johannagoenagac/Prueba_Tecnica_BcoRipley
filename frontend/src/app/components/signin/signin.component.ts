@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 export class SigninComponent implements OnInit {
 
   user = {}
+  messageError: String;
 
   constructor(private authservice : AuthService,
     private router: Router) { }
@@ -28,8 +29,10 @@ export class SigninComponent implements OnInit {
       },
       err =>{
         console.log(err);
+        this.messageError = err.error;
       }
-    )
-  }
+
+     
+    )}
 
 }

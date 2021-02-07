@@ -1,0 +1,36 @@
+<div class="div">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tipo</th>
+                <th scope="col">Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let giro of giros">
+                <td>{{giro.tipo}}</td>
+                <td>{{giro.valor}}</td>
+            </tr>
+            <tr *ngFor="let abono of abonos">
+                <td>{{abono.tipo}}</td>
+                <td class="text-danger">{{abono.valor}}</td>
+            </tr>
+
+
+        </tbody>
+
+        <tbody class="mt-3">
+            <tr>
+                <td><strong>Total Abonos</strong></td>
+                <td class="text-danger"><strong>{{totalAbonos}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Total Giros</strong></td>
+                <td class="text-danger"><strong>{{totalGiros}}</strong></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+</div>

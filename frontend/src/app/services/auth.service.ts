@@ -19,6 +19,14 @@ export class AuthService {
     return this.http.post<any>(this.URL + '/signin', user)
   }
 
+  transaction(transaction, userId){
+    
+    
+    const body = { transaction: transaction, userId:userId };
+    console.log(body);
+    return this.http.post<any>(this.URL + '/transaction', body)
+  }
+
   loggedIn(){
     return !!localStorage.getItem('token');
 
@@ -31,5 +39,25 @@ export class AuthService {
     logout(){
       localStorage.removeItem('token');
       this.router.navigate(['/signin']);
+    }
+
+    // getUserId(){
+    //   return this.http.get<any>(this.URL + '/userId')
+    // }
+
+    getTransacciones(){
+      return this.http.get(this.URL + '/getTransacciones');
+    }
+
+    getGiros(){
+      return this.http.get<any>(this.URL + '/getGiros');
+    }
+
+    getAbonos(){
+      return this.http.get(this.URL + '/getAbonos');
+    }
+
+    getUserId(){
+      return this.http.get(this.URL + '/userId');
     }
 }

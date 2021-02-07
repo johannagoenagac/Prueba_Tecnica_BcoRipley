@@ -7,6 +7,10 @@
         <div class="card-body">
             <form (submit)="signUp()">
                 <div class="form-group">
+                    <input type="text" [(ngModel)]="user.nombre" name="nombre" class=form-control
+                        placeholder="nombre" requierd autofocus>
+                </div>
+                <div class="form-group">
                     <input type="text" [(ngModel)]="user.rut" name="rut" class=form-control
                         placeholder="rut" requierd autofocus>
                 </div>
@@ -14,13 +18,16 @@
                     <input type="text" [(ngModel)]="user.email" name="email" class=form-control placeholder="email" requierd >
                 </div>
                 <div class="form-group">
-                    <input type="password" [(ngModel)]="user.password" name="password" class=form-control placeholder="password" requierd >
+                    <input type="password" [(ngModel)]="user.password" name="password" class=form-control placeholder="contraseña" requierd >
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                    <strong>Registrarse</strong>
                 </button>
             </form>
         </div>
+    </div>
+    <div class="div">
+        <p class="text-center" *ngIf="messageError">{{this.messageError}}</p>
     </div>
 </div>
 </div>
