@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+                <strong>Transacciones</strong>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="transactionForm">
+                    <div class="form-group">
+
+                        <label>Tipo</label>
+                        <select formControlName="tipo" name="tipo" class="form-control" #tipo>
+                            <option value="" disabled>Selecciona</option>
+                            <option value="Giro">Giro</option>
+                            <option value="Abono">Abono</option>
+                            <option value="Transferencia">Transferencia</option>
+                        </select>
+
+                    </div>
+
+                    <div class="div" *ngIf="tipo.value == 'Transferencia'">
+                        <div class="form-group">
+                            <input type="text" formControlName="rut_destino" name="rut_destino" class=form-control
+                                placeholder="Rut destinatario" requierd #rut_destino>
+                        </div>
+
+                        <div class="form-group">
+                            <select formControlName="Banco" name="Banco" class="form-control" #Banco>
+                                <option value="" disabled>Banco destino</option>
+                                <option value="Banco Santander">Banco Santander</option>
+                                <option value="Banco de chile">Banco de chile</option>
+                                <option value="Banco Ripley">Banco Ripley</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <select formControlName="tipo_cuenta" name="tipo_cuenta" class="form-control" #tipo_cuenta>
+                                <option value="" disabled>Tipo de cuenta</option>
+                                <option value="Cuenta corriente">Cuenta corriente</option>
+                                <option value="Cuenta vista">Cuenta vista</option>
+                                <option value="Cuenta de ahorro">Cuenta de ahorro</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" formControlName="Numero_cuenta" name="Numero_cuenta" class=form-control
+                                placeholder="Numero de cuenta" requierd #Numero_cuenta>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" formControlName="valor" name="valor" class=form-control placeholder="monto"
+                            requierd #valor>
+                    </div>
+
+                    <button (click)="addTransaction(transactionForm.value)" type="button"
+                        class="btn btn-primary btn-block">
+                        <strong>Aceptar</strong>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <app-transactions-table class="col-md-6"></app-transactions-table>
+</div>
